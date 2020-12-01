@@ -34,7 +34,7 @@ void loop()
       distanz = pow((3027.4 / Mittelwert), 1.2134);
       Serial.println(distanz);
       zaehler = 0;
-      if (distanz <= 15)
+      /*if (distanz <= 15)
       {
         Serial.println("9 Blöcke- Lager voll");
       }
@@ -45,7 +45,7 @@ void loop()
       if ((distanz <= 24) && (distanz >= 21))
       {
         Serial.println("7 Blöcke");
-      }
+      }*/
 
     }
   }
