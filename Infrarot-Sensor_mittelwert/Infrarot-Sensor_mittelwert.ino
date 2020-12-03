@@ -1,8 +1,8 @@
 /*
   Funktion:         Analogwerte werden gespeichert, sortiert und der Mittelwert ausgegeben
   Programierer:     Mattis Menge, Henning Meyer, Eric Junker
-  letzte Änderung:  01.12.2020
-  Version:          1.0
+  letzte Änderung:  03.12.2020
+  Version:          1.1
   Hardware:         Analog 1 = Infrarot Sensor
 
   Benutztung:       Anzahl Messwerte muss mit der Anzahl im Array "analogWerte" überein stimmen;
