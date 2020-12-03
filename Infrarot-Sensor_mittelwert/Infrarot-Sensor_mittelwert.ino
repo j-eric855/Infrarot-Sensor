@@ -4,14 +4,16 @@
   letzte Änderung:  01.12.2020
   Version:          1.0
   Hardware:         Analog 1 = Infrarot Sensor
+
+  Benutztung:       Anzahl Messwerte muss mit der Anzahl im Array "analogWerte" überein stimmen;
+                    Mit dem intervall legt man die Zeitspanne fest, in der die Messwerte abgespeichert werden;
 */
 
-int anzahlMesswerte = 10;
-int analogWert;
+int anzahlMesswerte = 20;
 int distanz;
 unsigned long zeitAnfang = 0;
-unsigned long intervall = 500;
-int analogWerte[10];
+unsigned long intervall = 300;
+int analogWerte[20];
 int zaehler = 0;
 int dataOne = 0;
 int ergebnis = 0;
@@ -35,7 +37,6 @@ void loop()
     if (zaehler == anzahlMesswerte)                       //Ist eine bestimtme Anzahl von Werten erreicht
     {
       BubbleSort(analogWerte, 10);
-
       ergebnis = 0;
       for (int i = 0; i < anzahlMesswerte; i++)           //Werte werden zusammengerechent
       {
@@ -43,15 +44,15 @@ void loop()
         ergebnis = ergebnis + dataOne;
       }
 
-      mittelwert = ergebnis / (anzahlMesswerte - 2);           //Mittelwert wird gebildet
-      distanz = pow((3027.4 / mittelwert), 1.2134);        //Umrechnung in cm
+      mittelwert = ergebnis / (anzahlMesswerte - 2);      //Mittelwert wird gebildet
+      distanz = pow((3027.4 / mittelwert), 1.2134);       //Umrechnung in cm
       Serial.println(distanz);
       zaehler = 0;
     }
   }
 }
 
-void BubbleSort(int messwerte[], int anzahl)
+void BubbleSort(int messwerte[], int anzahl)               //Array wird nach größe Sortiert von klein zu groß
 {
   for (int i = 0; i < (anzahl - 1); i++)
   {
@@ -65,7 +66,6 @@ void BubbleSort(int messwerte[], int anzahl)
       }
     }
   }
-  messwerte[0] = 0;
+  messwerte[0] = 0;                                        //Erster und letzter Messwerte werden gelöscht
   messwerte[anzahl] = 0;
 }
-
